@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="styles/demo.css" />
+    <link rel="stylesheet" href="assist/css/demo.css" />
 </head>
 
 <body>
 
     <div id="app">
-        <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+        <my-component v-bind:my-name="name" v-bind:my-age="age" v-bind:my-addr="addr"></my-component>
+        <input type="text" v-model="name">
     </div>
 
     <template id="myComponent">
@@ -28,21 +29,26 @@
 					<td>my age</td>
 					<td>{{ myAge }}</td>
 				</tr>
+				<tr>
+					<td>my addr</td>
+					<td>{{ myAddr }}</td>
+				</tr>
 			</table>
 		</template>
 </body>
-<script src="js/vue.js"></script>
+<script src="assist/js/vue.js"></script>
 <script>
     var vm = new Vue({
         el: '#app',
         data: {
-            name: 'keepfool',
-            age: 28
+            name: 'keepfool2',
+            age: 28,
+            addr: 'beijing'
         },
         components: {
             'my-component': {
                 template: '#myComponent',
-                props: ['myName', 'myAge']
+                props: ['myName', 'myAge', 'myAddr']
             }
         }
     })
