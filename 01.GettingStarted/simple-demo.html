@@ -60,8 +60,8 @@
         el: '#app',
         data: {
             newPerson: {
-                name: '',
-                age: 0,
+                name: 'your name',
+                age: 18,
                 sex: 'Male'
             },
             people: [{
@@ -76,10 +76,6 @@
                 name: 'Tracy',
                 age: 22,
                 sex: 'Female'
-            }, {
-                name: 'Chris',
-                age: 36,
-                sex: 'Male'
             }]
         },
         methods: {
@@ -87,8 +83,8 @@
                 this.people.push(this.newPerson);
                 // 添加完newPerson对象后，重置newPerson对象
                 this.newPerson = {
-                    name: '',
-                    age: 0,
+                    name: 'your name',
+                    age: 18,
                     sex: 'Male'
                 }
             },

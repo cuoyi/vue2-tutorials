@@ -10,8 +10,8 @@
 <body>
     <div id="app">
         <ul class="pagination">
-            <li v-for="n in pageCount">
-                <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
+            <li v-for="pageIndex in pageCount">
+                <a href="#" v-on:click="onClick(pageIndex)" v-bind:class="activeNumber === pageIndex ? 'active' : ''">{{ pageIndex }}</a>
             </li>
         </ul>
     </div>
@@ -23,6 +23,12 @@
         data: {
             activeNumber: 1,
             pageCount: 10
+        },
+        methods: {
+            onClick: function(index) {
+                this.activeNumber = index;
+                console.log(index);
+            }
         }
     })
 </script>

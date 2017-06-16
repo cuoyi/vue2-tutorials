@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<link rel="stylesheet" href="styles/demo.css" />
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/demo.css" />
+</head>
 
-	<body>
+<body>
 
-		<div id="app">
-			<my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
-		</div>
+    <div id="app">
+        <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+    </div>
 
-		<template id="myComponent">
+    <template id="myComponent">
 			<table>
 				<tr>
 					<th colspan="2">
@@ -30,22 +30,22 @@
 				</tr>
 			</table>
 		</template>
-	</body>
-	<script src="js/vue.js"></script>
-	<script>
-		var vm = new Vue({
-			el: '#app',
-			data: {
-				name: 'keepfool',
-				age: 28
-			},
-			components: {
-				'my-component': {
-					template: '#myComponent',
-					props: ['myName', 'myAge']
-				}
-			}
-		})
-	</script>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'keepfool',
+            age: 28
+        },
+        components: {
+            'my-component': {
+                template: '#myComponent',
+                props: ['myName', 'myAge']
+            }
+        }
+    })
+</script>
 
 </html>
