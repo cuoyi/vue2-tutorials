@@ -1,7 +1,7 @@
 
 # Vue.js 2.0 教程
 
-<font color="red">fork from https://github.com/keepfool/vue-tutorials</font>
+<font color=red>fork from https://github.com/keepfool/vue-tutorials</font>
 
 
 ## 1. Getting Started
