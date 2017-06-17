@@ -1,4 +1,5 @@
-# Vue.js教程
+fork from https://github.com/keepfool/vue-tutorials
+# Vue.js 2.0 教程
 
 ## 1. Getting Started
 
