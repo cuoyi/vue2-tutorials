@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .active {
+        display: block;
+    }
+    
+    .text-danger {
+        color: red;
+    }
+</style>
+
+<body>
+
+    <div id="app">
+        <!-- 绑定一个属性 -->
+        <img v-bind:src="imageSrc">
+        <hr>
+        <!-- 缩写 -->
+        <img :src="imageSrc">
+        <hr>
+        <!-- 与内联字符串连接 -->
+        <img :src="'/path/to/images/' + imageSrc">
+        <hr>
+
+        <!-- class 绑定 -->
+        <div v-bind:class="{ active: isActive }">class绑定</div>
+        <hr>
+
+        <!-- 多个 class 绑定 -->
+        <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">class绑定</div>
+        <hr>
+
+        <!-- 绑定 class 对象 -->
+        <div v-bind:class="classObject">classObject</div>
+        <hr>
+
+        <!--我们也可以在这里绑定返回对象的计算属性。-->
+        <div v-bind:class="classObjectAttr">classObject</div>
+        <hr>
+
+        <!--我们可以把一个数组传给 v-bind:class ，以应用一个 class 列表：-->
+        <div v-bind:class="[activeClass, errorClass]">数组语法</div>
+        <hr>
+
+        <!--如果你也想根据条件切换列表中的 class ，可以用三元表达式-->
+        <div v-bind:class="[isActive ? activeClass : '', errorClass]">数组语法,三元表达式</div>
+        <hr>
+
+        <!--v-bind:style 的对象语法十分直观——看着非常像 CSS ，其实它是一个 JavaScript 对象-->
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">绑定内联样式</div>
+        <hr>
+
+        <!--直接绑定到一个样式对象通常更好，让模板更清晰-->
+        <div v-bind:style="styleObject">绑定内联样式对象</div>
+        <hr>
+
+        <!--v-bind:style 的数组语法可以将多个样式对象应用到一个元素上：-->
+        <!--<div v-bind:style="[baseStyles, overridingStyles]"></div>-->
+
+        <!--从 2.3 开始你可以为 style 绑定中的属性提供一个包含多个值的数组，常用于提供多个带前缀的值-->
+        <!--<div :style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">-->
+
+</body>
+<script src="assist/js/vue.js"></script>
+<script>
+    // 说明：动态地绑定一个或多个特性，或一个组件 prop 到表达式。
+    // 在绑定 class 或 style 特性时，支持其它类型的值，如数组或对象。
+    // 可以通过下面的教程链接查看详情。
+    // 在绑定 prop 时，prop 必须在子组件中声明。可以用修饰符指定不同的绑定类型。
+    // 没有参数时，可以绑定到一个包含键值对的对象。注意此时 class 和 style 绑定不支持数组和对象。
+    // 注意：
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            hasError: true,
+            error: null,
+            imageSrc: 'http://www.bootcdn.cn/assets/img/vue.svg',
+            activeClass: 'active',
+            errorClass: 'text-danger',
+            activeColor: 'red',
+            fontSize: 30,
+            classObject: {
+                active: true,
+                'text-danger': false
+            },
+            styleObject: {
+                color: 'red',
+                fontSize: '13px'
+            }
+        },
+        computed: {
+            classObjectAttr: function() {
+                return {
+                    active: this.isActive && !this.error,
+                    'text-danger': this.error && this.error.type === 'fatal',
+                }
+            }
+        }
+    })
+</script>
+
+</html>

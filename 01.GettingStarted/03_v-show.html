@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div id="app">
+            <p>Hello, Vue.js!</p>
+            <p v-show="yes">Yes!</p>
+            <p v-show="no">No!</p>
+            <p v-show="age >= 25">Age: {{ age }}</p>
+            <p v-show="name.indexOf('jack') != -1">Name: {{ name }}</p>
+        </div>
+    </div>
+
+</body>
+<script src="assist/js/vue.js"></script>
+<script>
+    // 说明：根据表达式之真假值，切换元素的 display CSS 属性。当条件变化时该指令触发过渡效果。
+    // 注意：元素始终会被渲染并保留在 DOM 中。v-show 不支持 <template> 语法，也不支持 v-else
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            yes: true,
+            no: false,
+            age: 28,
+            name: 'keepfool'
+        }
+    })
+</script>
+
+</html>
